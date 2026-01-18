@@ -1,0 +1,325 @@
+.signal-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  border: 1px solid var(--border-color);
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.signal-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--border-color);
+}
+
+.signal-card.bullish::before {
+  background: var(--gradient-green);
+}
+
+.signal-card.bearish::before {
+  background: var(--gradient-red);
+}
+
+.signal-card.neutral::before {
+  background: linear-gradient(90deg, var(--text-muted), var(--text-secondary));
+}
+
+.signal-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--text-muted);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Card Header */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.25rem;
+}
+
+.symbol-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.symbol {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.company-name {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: -4px;
+}
+
+.trend-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 100px;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  width: fit-content;
+}
+
+.trend-badge.bullish {
+  background: rgba(48, 209, 88, 0.12);
+  color: var(--accent-green);
+}
+
+.trend-badge.bearish {
+  background: rgba(255, 69, 58, 0.12);
+  color: var(--accent-red);
+}
+
+.trend-badge.neutral {
+  background: rgba(142, 142, 147, 0.12);
+  color: var(--text-secondary);
+}
+
+.trend-description {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0 0 1rem 0;
+  padding: 0.75rem;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--border-color);
+}
+
+.signal-card.bullish .trend-description {
+  border-left-color: var(--accent-green);
+}
+
+.signal-card.bearish .trend-description {
+  border-left-color: var(--accent-red);
+}
+
+.price-section {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.current-price {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  font-feature-settings: 'tnum';
+}
+
+.price-change {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  font-feature-settings: 'tnum';
+}
+
+.price-change.positive {
+  color: var(--accent-green);
+}
+
+.price-change.negative {
+  color: var(--accent-red);
+}
+
+/* Card Body */
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.probability-section {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+}
+
+.prob-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.prob-label {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.info-hint {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--bg-hover);
+  color: var(--text-muted);
+  font-size: 0.625rem;
+  cursor: help;
+}
+
+.prob-value {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--accent-blue);
+  font-feature-settings: 'tnum';
+}
+
+.prob-bar {
+  height: 6px;
+  background: linear-gradient(90deg,
+    var(--accent-red) 0%,
+    var(--accent-orange) 35%,
+    var(--accent-green) 100%
+  );
+  border-radius: 3px;
+  position: relative;
+}
+
+.prob-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background: transparent;
+}
+
+.prob-marker {
+  position: absolute;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  background: white;
+  border: 2px solid var(--bg-card);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.prob-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6px;
+  font-size: 0.625rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+/* Metrics Grid */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.metric {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.metric-label {
+  font-size: 0.6875rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.metric-value {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  font-feature-settings: 'tnum';
+}
+
+.metric-value.high-vol {
+  color: var(--accent-red);
+}
+
+.metric-value.med-vol {
+  color: var(--accent-orange);
+}
+
+.metric-value.low-vol {
+  color: var(--accent-green);
+}
+
+.metric[title] {
+  cursor: help;
+}
+
+/* Error State */
+.card-error {
+  margin-top: 1rem;
+  padding: 10px 12px;
+  background: rgba(255, 69, 58, 0.1);
+  border: 1px solid rgba(255, 69, 58, 0.2);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.error-icon {
+  width: 18px;
+  height: 18px;
+  background: var(--accent-red);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.error-text {
+  font-size: 0.75rem;
+  color: var(--accent-red);
+  line-height: 1.4;
+}
+
+@media (max-width: 480px) {
+  .signal-card {
+    padding: 1rem;
+  }
+
+  .symbol {
+    font-size: 1.25rem;
+  }
+
+  .current-price {
+    font-size: 1rem;
+  }
+
+  .metrics-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}

@@ -1,0 +1,57 @@
+.universe-selector {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.selector-label {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.universe-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.universe-btn {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.universe-btn:hover {
+  border-color: var(--accent-blue);
+  color: var(--text-primary);
+}
+
+.universe-btn.active {
+  background: var(--accent-blue);
+  border-color: var(--accent-blue);
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .universe-selector {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .universe-buttons {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .universe-btn {
+    flex: 1;
+    min-width: calc(50% - 0.25rem);
+    text-align: center;
+  }
+}
