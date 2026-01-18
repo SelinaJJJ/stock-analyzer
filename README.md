@@ -2,15 +2,7 @@
 
 Opinionated scaffold for a Quant trading signals project using a C++ quant core and Java Spring Boot platform.
 
-Quick contents
-
-- `docker-compose.yml` - Postgres + Redis for local development
-- `sql/schema.sql` - DB schema for `prices`, `signals`, `runs`
-- `backend/` - Java (Spring Boot) service skeleton (Gradle)
-- `cpp/` - C++ Quant Core skeleton (CMake)
-- `docs/architecture.md` - Project plan and phases
-
-Getting started (recommended minimal steps)
+Getting started
 
 1. Start local infra (Postgres + Redis):
 
